@@ -13,7 +13,10 @@ jobs:
 
     steps:
     - name: git clone
-      run: |
-          cd dagster-ec2deploy
-          docker-compose up
+      run: git clone https://github.com/Mahesh096/dagster-ec2deploy.git
+    - name: directory
+      run: cd dagster-ec2deploy
+    - name: dockercommend
+      run: sudo docker-compose up
+          
 
