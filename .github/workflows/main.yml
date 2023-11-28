@@ -18,11 +18,9 @@ jobs:
         git clone https://github.com/Mahesh096/dagster-ec2deploy.git
         
     - name: Delete Old docker container
-      run: sudo docker rm -f cicd-pipeline-container || true
-      
-    - name: Clone Git Repository
       run: |
-          cd dagster-ec2deploy
-          sudo docker-compose up
+        sudo docker rm -f dagster-ec2deploy_dagster-dagit_1 || true
+        sudo docker rm -f dagster-ec2deploy_dagster-postgres_1 || true
+      
       
 
