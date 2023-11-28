@@ -6,25 +6,17 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+
+  build:
+
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: git clone
+      run: git clone https://github.com/Mahesh096/dagster-ec2deploy.git
+           cd dagster-ec2deploy
+    - name: Delete Old docker container
+      run: sudo docker rm -f cicd-pipeline-container || true
+    - name: Run Docker-compose
+      run: docker-compose up
 
-      - name: Connect to EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_PRIVATE_KEY }}
-          script: |
-            sudo apt update
-            sudo apt install -y git
-
-      - name: Clone Git Repository
-        run: |
-          git clone https://github.com/Mahesh096/dagster-ec2deploy.git
-          cd dagster-ec2deploy
-          docker-compose up
