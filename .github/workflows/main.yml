@@ -9,11 +9,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: git clone
-      run: git clone https://github.com/Mahesh096/dagster-ec2deploy.git
-    - name: directory
-      run: cd dagster-ec2deploy
-    - name: dockercommend
-      run: sudo docker-compose up
+    - name: Clone Git Repository
+      run: |
+          git clone https://github.com/Mahesh096/dagster-ec2deploy.git
+          cd dagster-ec2deploy
+          sudo docker-compose up
           
 
