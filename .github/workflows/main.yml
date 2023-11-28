@@ -10,6 +10,9 @@ jobs:
 
     steps:
 
+    - name: delete gitrepo
+      run: rm -r dagster-ec2deploy/
+
     - name: git clone
       run: |
         git clone https://github.com/Mahesh096/dagster-ec2deploy.git
