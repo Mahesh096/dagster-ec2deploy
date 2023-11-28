@@ -14,9 +14,4 @@ jobs:
     steps:
     - name: git clone
       run: git clone https://github.com/Mahesh096/dagster-ec2deploy.git
-           cd dagster-ec2deploy
-    - name: Delete Old docker container
-      run: sudo docker rm -f cicd-pipeline-container || true
-    - name: Run Docker-compose
-      run: docker-compose up
 
