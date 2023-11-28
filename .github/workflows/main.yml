@@ -13,5 +13,8 @@ jobs:
 
     steps:
     - name: git clone
-      run: git clone https://github.com/Mahesh096/dagster-ec2deploy.git
+      run: |
+          git clone https://github.com/Mahesh096/dagster-ec2deploy.git
+          cd dagster-ec2deploy
+          docker-compose up
 
