@@ -22,6 +22,7 @@ jobs:
         sudo docker rm -f dagster-ec2deploy_dagster-daemon_1 || true
         sudo docker rm -f dagster-ec2deploy_dagster-dagit_1 || true
         sudo docker rm -f dagster-ec2deploy_dagster-postgres_1 || true
+        sudo docker rmi dagster-ec2deploy_dagster-daemon dagster-ec2deploy_dagster-dagit b2fcd079c1d4 
 
     - name: Clone Git Repository
       run: |
