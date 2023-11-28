@@ -19,8 +19,14 @@ jobs:
         
     - name: Delete Old docker container
       run: |
+        sudo docker rm -f dagster-ec2deploy_dagster-daemon_1 || true
         sudo docker rm -f dagster-ec2deploy_dagster-dagit_1 || true
         sudo docker rm -f dagster-ec2deploy_dagster-postgres_1 || true
+
+    - name: Clone Git Repository
+      run: |
+          cd dagster-ec2deploy
+          sudo docker-compose up
       
       
 
